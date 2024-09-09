@@ -1,12 +1,13 @@
-//pT distribution of pions, kaons and protons at 5.02 TeV
+//In this Pythia 8 simulation code we are simulating the collision of proton on proton at center of mass energy 
+//5.02 TeV at the LHC. We are also plotting the pT distribution of pions, kaons and protons using ROOT
 
 #include <iostream>
 #include "Pythia8/Pythia.h" // Include Pythia headers.
-#include "TH1.h"
-#include "TCanvas.h"
+#include "TH1.h"        //ROOT one dimensional histogram class 
+#include "TCanvas.h"     //To draw the plots on the canvas
 #include "TVirtualPad.h"
 #include "TApplication.h"
-#include "TFile.h"
+#include "TFile.h"      //To save the plots as a root file
 using namespace Pythia8; // Let Pythia8:: be implicit.
 
 int main(int argc, char* argv[]) { // Begin main program.
@@ -16,13 +17,12 @@ TApplication theApp("hist", &argc, argv);
 // Set up generation.
 Pythia pythia; // Declare a Pythia object
 //pythia.readString("Top:gg2ttbar = on"); // Switch on process.
-pythia.readString("Beams:idA = 2212");
-pythia.readString("Beams:idB = 2212");
-pythia.readString("Beams:eCM = 5020."); 
-pythia.readString("HardQCD:all = on");
-pythia.readString("SoftQCD:all = on");
-//pythia.readString("Top:qqbar2ttbar = on");
-//pythia.readString("Next:numberShowEvent = 5");
+pythia.readString("Beams:idA = 2212");     //proton beam
+pythia.readString("Beams:idB = 2212");     //proton beam
+pythia.readString("Beams:eCM = 5020.");    //center of mass energy 5.02 TeV or 5020 GeV
+pythia.readString("HardQCD:all = on");     //Turn on all Hard QCD processes
+pythia.readString("SoftQCD:all = on");     //Turn on all Soft QCD processes
+
 pythia.init(); // Initialize; incoming pp beams is default.
 
 TFile* outFile = new TFile("pThist.root", "RECREATE");
