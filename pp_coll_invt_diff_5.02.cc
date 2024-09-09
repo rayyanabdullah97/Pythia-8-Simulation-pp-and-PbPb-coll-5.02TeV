@@ -1,4 +1,4 @@
-//Invariant diff cross section vs pT for pp Coll at 5.02TeV CoM Energy
+//Invariant diff cross section vs pT for pp Coll at 5.02TeV CoM Energy as well as pT distribution for pions, kaons and protons
 #include <iostream>
 #include "Pythia8/Pythia.h"
 #include "TH1.h"
