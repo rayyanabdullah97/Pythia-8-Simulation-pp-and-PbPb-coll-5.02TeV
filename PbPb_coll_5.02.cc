@@ -16,7 +16,6 @@ int main(int argc, char* argv[]) {
     pythia.readString("Beams:idB = 1000822080");
     pythia.readString("Beams:eCM = 5020.");
     //pythia.readString("HeavyIon:mode = 1");
-    //pythia.readString("HeavyIon:Angantyr = on");
     pythia.readString("Beams:frameType = 1");
 
       // Initialize the Angantyr model to fit the total and semi-includive
@@ -26,14 +25,6 @@ int main(int argc, char* argv[]) {
     // These parameters are typicall suitable for sqrt(S_NN)=5TeV
     pythia.readString("HeavyIon:SigFitDefPar = "
                     "17.24,2.15,0.33,0.0,0.0,0.0,0.0,0.0");
-    // A simple genetic algorithm is run for 20 generations to fit the
-    // parameters.
-    double genlim[] = {2979.4, 2400.1, 1587.5, 1028.8, 669.9,
-                     397.4, 220.3, 116.3, 54.5};
-    // If you change any parameters these should also be changed.
-
-    // The upper edge of the correponding percentiles:
-    double pclim[] = {0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8};
 
     pythia.readString("HeavyIon:SigFitNGen = 20");
 
